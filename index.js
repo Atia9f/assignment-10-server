@@ -44,9 +44,6 @@ async function run() {
             res.send(result)
         })
 
-
-        
-
         app.post('/addPlace', async (req, res) => {
             const newPlace = req.body;
             console.log(newPlace);
