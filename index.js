@@ -25,7 +25,6 @@ async function run() {
         // Send a ping to confirm a successful connection
         const placeCollection = client.db('placeDB').collection('place');
         const countryCollection = client.db('placeDB').collection('country');
-        // const countryCollection = client.db('countryDB').collection('country');
 
         app.get('/place', async (req, res) => {
             const cursor = placeCollection.find();
