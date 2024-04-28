@@ -58,8 +58,6 @@ async function run() {
             res.send(result)
         })
 
-
-
         app.put('/place/:id', async (req, res) => {
             const id = req.params.id;
             const fillter = { _id: new ObjectId(id) }
