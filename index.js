@@ -4,7 +4,9 @@ require('dotenv').config()
 const app = express();
 const port = process.env.PORT || 5000;
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-
+// middleware
+app.use(cors());
+app.use(express.json());
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.achcrxa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
@@ -41,6 +43,13 @@ async function run() {
         app.get('/myList/:email', async (req, res) => {
             const cursor = placeCollection.find({ email: req.params.email });
             const result = await cursor.toArray();
+            res.send(result)
+        })
+        
+        app.get('/country/:countryName',async(req,res)=>{
+            const name = req.params.countryName;
+            const query ={country_Name:name};
+            const result = await placeCollection.find(query).toArray();
             res.send(result)
         })
 
@@ -98,9 +107,7 @@ async function run() {
 run().catch(console.dir);
 
 
-// middleware
-app.use(cors());
-app.use(express.json());
+
 
 app.get('/', (req, res) => {
     res.send('Tourism server is running')
