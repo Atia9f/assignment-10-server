@@ -44,18 +44,6 @@ async function run() {
             res.send(result)
         })
 
-        // app.get('/findMatchingItems/:country_Name', async (req, res) => {
-        //     const countryName = req.params.country_Name;
-        //     const cursor1 = countryCollection.find({ country_Name: countryName });
-        //     const items1 = await cursor1.toArray();
-        //     const cursor2 = placeCollection.find({ country_Name: countryName });
-        //     const items2 = await cursor2.toArray();
-        //     const result = items1.filter(item1 =>
-        //         items2.some(item2 => item2.name === item1.name)
-
-        //     )
-        //     res.send(result)
-        // })
 
         
 
