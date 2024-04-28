@@ -57,11 +57,7 @@ async function run() {
         //     res.send(result)
         // })
 
-        // app.get('/country/:country_Name', async (req, res) => {
-        //     const cursor = countryCollection.find({ country_Name: req.params.country_Name });
-        //     const result = await cursor.toArray();
-        //     res.send(result)
-        // })
+        
 
         app.post('/addPlace', async (req, res) => {
             const newPlace = req.body;
